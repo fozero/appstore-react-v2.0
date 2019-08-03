@@ -1,0 +1,38 @@
+.recommend-container{
+  .title{
+    font-size: 40px;
+    margin: 30px 30px 0;
+  }
+  .app-list{
+    display: flex;
+    padding: 30px;
+    border-bottom: 1px solid #eee;
+    overflow: scroll;
+  }
+  .app-item{
+    padding: 0 20px;
+    font-size: 28px;
+    color: #000;
+    &:first-child{
+      padding-left: 0;
+    }
+    .app-icon{
+      width: 120px;
+      border-radius: 20px;
+    }
+    .app-name{
+      margin-top: 10px;
+      text-overflow: -o-ellipsis-lastline;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      /*! autoprefixer: off */
+      -webkit-box-orient: vertical;
+    }
+    .app-categray{
+      color: #666;
+      margin-top: 8px;
+    }
+  }
+}

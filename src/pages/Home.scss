@@ -1,0 +1,11 @@
+.container{
+  position: relative;
+  padding-top: 92px;
+  background: #fff;
+  .search-bar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+  }
+}

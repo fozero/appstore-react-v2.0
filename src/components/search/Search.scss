@@ -1,0 +1,32 @@
+.search-container{
+    position: relative;
+    .search-bar{
+        width: 100%;
+        z-index: 999;
+        border: none;
+        background:#eee;
+        padding: 20px 30px;
+        font-size: 32px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid #dadada;
+        .icon-search{
+            position: absolute;
+            left: 50px;
+            font-size: 36px;
+            color: #666;
+        }
+    }
+    .search-input{
+        background:#ddd;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        flex: 1;
+        text-indent: 40px;
+    }
+    .search-cancel{
+        margin-left: 20px;
+    }
+}
