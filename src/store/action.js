@@ -30,6 +30,16 @@ import { createActions } from 'redux-actions';
 
 // 使用createActions创建多个动作
 export const actionCreators = createActions({
+  [types.GET_RECOMMEND_LIST]:()=>null,
+  [types.GET_RECOMMEND_LIST_SUCCEEDED]:(recommendList)=>{
+    return recommendList
+  },
+  [types.APP_LIST_DATE]:()=>null,
+  [types.APP_SEARCH]:keyword=>{
+    return keyword
+  },
   [types.SAVE_SEARCH_LIST]:searchList=>searchList,
   [types.REMOVE_SEARCH_LIST]:()=>null
 });
+
+

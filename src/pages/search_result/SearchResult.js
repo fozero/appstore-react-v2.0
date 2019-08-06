@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Search from '../../components/search/Search';
 import SearchList from '../../components/search_list/SearchList';
 import './SearchResult.scss';
-import $api from '../../api/index.js';
+// import $api from '../../api/index.js';
 // import { saveSearchList, removeSearchList } from '../../store/action'
 import { actionCreators } from '../../store/action'
 class SearchResult extends Component {
@@ -16,15 +16,16 @@ class SearchResult extends Component {
   }
   // 搜索app
   appSearch(keyword) {
-    $api.lookUp({}).then((response) => {
-      this.setState({
-        searchList: response.results
-      })
-      // dispatch action
-      this.props.saveSearchList(this.state.searchList);
-    }).catch(err => {
-      console.log(err);
-    })
+    this.props.appSearch(keyword);
+    // $api.lookUp({}).then((response) => {
+    //   this.setState({
+    //     searchList: response.results
+    //   })
+    //   // dispatch action
+    //   this.props.saveSearchList(this.state.searchList);
+    // }).catch(err => {
+    //   console.log(err);
+    // })
   }
 
   componentDidMount(){
@@ -72,6 +73,7 @@ const mapStateToProps = (state) => ({
  */
 // createActions会返回一个对象，对象针对每个action类型都有一个值为action工厂的属性，属性名为action类型的值去掉下划线后的驼峰命名
 const mapDispatchToProps = {
+  appSearch:actionCreators.appSearch,
   saveSearchList:actionCreators.saveSearchList,
   removeSearchList:actionCreators.removeSearchList
 }

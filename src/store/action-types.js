@@ -1,3 +1,10 @@
+// 推荐
+export const GET_RECOMMEND_LIST = 'GET_RECOMMEND_LIST'
+export const GET_RECOMMEND_LIST_SUCCEEDED = 'GET_RECOMMEND_LIST_SUCCEEDED'
+// 搜索
+export const APP_SEARCH = 'APP_SEARCH'
+// app列表
+export const APP_LIST_DATE = 'APP_LIST_DATE'
 // 搜索结果
 export const SAVE_SEARCH_LIST = 'SAVE_SEARCH_LIST'
 // 清除历史结果

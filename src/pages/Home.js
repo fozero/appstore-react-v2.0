@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ReactPullLoad, { STATS } from "react-pullload";
 import "react-pullload/dist/ReactPullLoad.css";
 import Search from '../components/search/Search';
@@ -6,13 +7,14 @@ import Recommend from '../components/recommend/Recommend';
 import AppList from '../components/app_list/AppList';
 import $api from '../api/index.js';
 import './Home.scss';
+import { actionCreators } from '../store/action'
 class Index extends Component {
   constructor(props) {
     super(props);
     this.state = { 
       appList: [],
       appListAll: [],
-      recommendList:[],
+      // recommendList:[],
       hasMore: true,
       action: STATS.init,
       pageSize:10,
@@ -50,14 +52,15 @@ class Index extends Component {
     })
   }
   getRecommendList(){
-    $api.recommendData({}).then((response) => {
-      let feed = response.feed;
-      this.setState({
-        recommendList: feed.entry
-      })
-    }).catch(err => {
-      console.log(err)
-    })
+    this.props.getRecommendList();
+    // $api.recommendData({}).then((response) => {
+    //   let feed = response.feed;
+    //   this.setState({
+    //     recommendList: feed.entry
+    //   })
+    // }).catch(err => {
+    //   console.log(err)
+    // })
   }
   // 分页加载
   getPageData(page){
@@ -148,7 +151,8 @@ class Index extends Component {
           handleAction={this.handleAction}
           hasMore={this.state.hasMore}
           distanceBottom={100}>
-          <Recommend list={this.state.recommendList}></Recommend>
+          {/* <Recommend list={this.state.recommendList}></Recommend> */}
+          <Recommend></Recommend>
           <AppList list={this.state.appList}></AppList>
         </ReactPullLoad>
       </div>
@@ -156,4 +160,25 @@ class Index extends Component {
   }
 }
 
-export default Index;
+
+// 将state 映射到展示组件的 props 中
+// const mapStateToProps = (state) => ({
+//   recommendList: state.recommendList
+// })
+// 另一种写法
+// const mapStateToProps = (state) => {
+//   return {
+//     recommendList: state.recommendList
+//   }
+// }
+
+
+const mapDispatchToProps = {
+  getRecommendList:actionCreators.getRecommendList
+}
+
+
+// 通过connect生成容器组件
+export default connect(null,mapDispatchToProps)(Index);
+
+// export default Index;

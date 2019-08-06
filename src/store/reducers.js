@@ -41,6 +41,12 @@ let defaultState = {
 
 // 使用handleActions处理多个actions  ,这里需要注意的是  通过action.payload获取传过来的数据
 const reducerCreators = handleActions({
+  [types.GET_RECOMMEND_LIST_SUCCEEDED]:(state, action)=>{
+    return {
+      ...state,
+      recommendList: action.payload
+    }
+  },
   [types.SAVE_SEARCH_LIST]:(state, action)=>{
     return {
       ...state,

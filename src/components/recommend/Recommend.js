@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './Recommend.scss';
 class Recommend extends Component {
     render() {
@@ -7,7 +8,7 @@ class Recommend extends Component {
                 <div className='title'>推荐</div>
                 <ul className='app-list'>
                     {
-                        this.props.list.map((item,index)=>{
+                        this.props.recommendList.map((item,index)=>{
                             return(
                                 <li className='app-item' key={index}>
                                     <img className='app-icon' src={item['im:image'][0].label} alt="" />
@@ -23,4 +24,9 @@ class Recommend extends Component {
     }
 }
 
-export default Recommend;
+// 将state属性映射到props上
+const mapStateToProps = (state) => ({
+    recommendList: state.recommendList || []
+})
+  
+export default connect(mapStateToProps)(Recommend);
