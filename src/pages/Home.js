@@ -4,12 +4,34 @@ import ReactPullLoad, { STATS } from "react-pullload";
 import "react-pullload/dist/ReactPullLoad.css";// the hook
 import { withTranslation } from 'react-i18next';
 import * as R from 'ramda'
+import ContentLoader, { Facebook } from 'react-content-loader'
 import Search from '../components/search/Search';
 import Recommend from '../components/recommend/Recommend';
 import AppList from '../components/app_list/AppList';
 import $api from '../api/index.js';
 import './Home.scss';
 import { actionCreators } from '../store/action'
+
+// 骨架屏loading
+// 自定义风格
+const MyLoader = () => (
+  <ContentLoader 
+        height={90}
+        width={400}
+        speed={2}
+        primaryColor="#f3f3f3"
+        secondaryColor="#ecebeb"
+    >
+        <rect x="15" y="15" rx="5" ry="5" width="100" height="74" />
+        <rect x="135" y="25" rx="4" ry="4" width="250" height="8" />
+        <rect x="215" y="50" rx="3" ry="3" width="170" height="8" />
+        <rect x="135" y="75" rx="4" ry="4" width="250" height="8" />
+    </ContentLoader>
+)
+// Facebook风格
+// const MyFacebookLoader = () => <Facebook />
+
+
 class Index extends Component {
   constructor(props) {
     super(props);
@@ -19,6 +41,7 @@ class Index extends Component {
       // recommendList:[],
       hasMore: true,
       action: STATS.init,
+      isLoading:true,
       pageSize:10,
       page:1
     };
@@ -43,7 +66,8 @@ class Index extends Component {
       this.setState({
         appListAll: list,
         hasMore: true,
-        action: STATS.refreshed
+        action: STATS.refreshed,
+        isLoading:false
       })
       this.getPageData(1);
     }).catch(err => {
@@ -141,6 +165,7 @@ class Index extends Component {
 
   render() {
     // const { t } = this.props;
+    const isLoading = this.state.isLoading;
     return (
       <div className='container'>
         <div className='search-bar'>
@@ -158,7 +183,11 @@ class Index extends Component {
           distanceBottom={100}>
           {/* <Recommend list={this.state.recommendList}></Recommend> */}
           <Recommend></Recommend>
-          <AppList list={this.state.appList}></AppList>
+          {isLoading ? (
+            <MyLoader />
+          ) : (
+            <AppList list={this.state.appList}></AppList>
+          )}
         </ReactPullLoad>
       </div>
     );
