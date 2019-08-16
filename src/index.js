@@ -7,6 +7,9 @@ import Router from './router/index';
 import './styles/base.scss';
 import * as serviceWorker from './serviceWorker';
 
+// import i18n (needs to be bundled ;)) 
+import './i18n';
+
 const render = Component => {
   ReactDOM.render(
     <Provider store={store}>

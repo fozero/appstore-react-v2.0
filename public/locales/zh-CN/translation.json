@@ -1,0 +1,119 @@
+{
+    "site": {
+      "name": "APP应用商店"
+    },
+    "header": {
+      "menu": {
+        "logout": "登出"
+      }
+    },
+    "title":{
+      "recommend":"推荐"
+    },
+    "subHeader": {
+      "btn": {
+        "save": "儲存",
+        "publish": "儲存並發佈",
+        "unpublish": "取消發佈",
+        "approve": "通過審批",
+        "reject": "不合資格",
+        "revoke": "註銷審批",
+        "copyStripeLink": "複製Stripe申請連結",
+        "preview": "預覽",
+        "updateTransaction": "從錢包更新記錄",
+        "resendEmail": "重發電郵",
+        "submit": "提交",
+        "archive": "刪除",
+        "search": "搜索"
+      },
+      "label": {
+        "orgSearch": "機構",
+        "projectSearch": "項目"
+      },
+      "placeHolder": {
+        "search": "搜尋",
+        "projectSearch": "項目編號，名稱，介紹",
+        "orgSearch": "機構編號，名稱"
+      }
+    },
+    "status": {
+      "draft": "草稿",
+      "pending": "待審批",
+      "approved": "審批成功",
+      "rejected": "不合資格",
+      "archived": "已刪除",
+      "revoked": "已被註銷",
+      "published": "已發佈",
+      "orderPending": "處理中",
+      "orderPaymentSuccess": "付款完成",
+      "orderPaymentFailed": "付款不成功",
+      "orderCancelled": "已取消"
+    },
+    "message": {
+      "saveSuccess": "儲存成功！",
+      "saveFail": "儲存失敗，請稍候再試",
+      "frontpageSaveFailUniqueItems": "儲存失敗 - 精選項目編號不能有相同號碼",
+      "publishSuccess": "發佈成功！",
+      "unpublishSuccess": "已取消發佈",
+      "approveSuccess": "機構審批完成",
+      "rejectSuccess": "機構已被審批為不合資格",
+      "revokeSuccess": "機構已被註銷",
+      "copySuccess": "成功複製連結到剪貼簿",
+      "archiveSuccess": "已成功刪除",
+      "organizationConfirmApprove": "你確定此機構通過審批？",
+      "organizationConfirmReject": "你確定以不合資格為理由拒絕此機構？",
+      "organizationConfirmRevoke": "你確定要註銷此機構？",
+      "organizationInvalidUrl": "網址格式不正確",
+      "projectConfirmPublish": "你確定要儲存並發布嗎？",
+      "projectConfirmUnpublish": "你確定要取消發佈嗎？",
+      "promoItemInvalidUrl": "網址格式不正確",
+      "promoItemConfirmArchive": "你確定刪除？",
+      "error404": "抱歉，你訪問的頁面不存在",
+      "correctAllField": "請確認所有欄位輸入正確",
+      "noPaymentPublishTip": "收款戶口未設置！",
+      "chooseDonationItemTaxRefundField":
+        "抱歉，請為每一個捐款單位的退稅選項作出選擇",
+      "pleaseCopyLink": "請複製以下註冊連結",
+      "paymentTypeMustTrue": "\"用戶自設捐款額\" 沒有捐款單位時必需開啟",
+      "publisbedProjectPaymentAccountTypeMustBeSet": "項目已發佈，請確定收款戶口",
+      "orderResendEmailErrorStatus": "捐助狀態需為\"付款完成\"才可重發電郵",
+      "orderResendEmailErrorNoInfo":
+        "請輸入\"收據名稱\"及\"收據寄出電郵\"並儲存後再重發電郵",
+      "resendEmailSuccess": "重發電郵成功！",
+      "sessionTimeoutTitle": "登入逾時",
+      "sessionTimeoutMessage": "系統將會於5秒後跳轉到登入頁面，請重新登入",
+      "archiveDonationItemSuccess": "封存捐款單位成功！",
+      "bankInfoShouldBeAllOrNil": "請同時輸入銀行名稱、戶口號碼和戶口持有人名稱",
+      "updateTransactionSuccess": "付款資料更新成功！",
+      "contentExcessMaxLength": "內容過大，最多可輸入({{maxLength}})個字"
+    },
+    "upload": {
+      "fail": "上傳失敗，請稍候再試",
+      "failMaxCount": "上傳失敗 - 已超過文件上傳上限",
+      "failMaxSize": "上傳失敗 - 文件過大",
+      "failExt": "上傳失敗 － 不支援此文件格式",
+      "success": "上傳成功"
+    },
+    "general": {
+      "btn": {
+        "confirm": "確定",
+        "cancel": "取消",
+        "upload": "上傳",
+        "ok": "好"
+      }
+    },
+    "pageName": {
+      "projectList": "所有項目列表",
+      "projectDetail": "項目詳情",
+      "organizationList": "機構列表",
+      "organizationDetail": "機構詳情",
+      "orderList": "項目捐助列表",
+      "orderDetail": "捐助詳情",
+      "categoryList": "分類列表",
+      "categoryDetail": "分類詳情",
+      "promoItemList": "推廣欄位設定",
+      "promoItemDetail": "推廣欄位詳情",
+      "frontpageSetting": "項目頁面管理"
+    }
+  }
+  

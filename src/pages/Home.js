@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactPullLoad, { STATS } from "react-pullload";
-import "react-pullload/dist/ReactPullLoad.css";
+import "react-pullload/dist/ReactPullLoad.css";// the hook
+import { withTranslation } from 'react-i18next';
+import * as R from 'ramda'
 import Search from '../components/search/Search';
 import Recommend from '../components/recommend/Recommend';
 import AppList from '../components/app_list/AppList';
@@ -138,11 +140,14 @@ class Index extends Component {
   }
 
   render() {
+    // const { t } = this.props;
     return (
       <div className='container'>
         <div className='search-bar'>
           <Search onFoucs={this.onFoucs.bind(this)}></Search>
         </div>
+        {/* <h1>{t('pageName.projectList')}</h1>
+        <h1>{t('site.name')}</h1> */}
         <ReactPullLoad
           className="block"
           isBlockContainer={true}
@@ -178,7 +183,14 @@ const mapDispatchToProps = {
 }
 
 
-// 通过connect生成容器组件
-export default connect(null,mapDispatchToProps)(Index);
-
 // export default Index;
+// 通过connect生成容器组件
+// export default connect(null,mapDispatchToProps)(Index);
+
+
+// 使用i18next实现语言国际化
+// 从右往左执行函数组合（右侧函数的输出作为左侧函数的输入）
+export default R.compose(
+  connect(null,mapDispatchToProps),
+  withTranslation()
+)(Index);
