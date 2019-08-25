@@ -1,10 +1,9 @@
-
-import * as types from './action-types'
-import { handleActions } from 'redux-actions';
+import * as types from "./action-types";
+import { handleActions } from "redux-actions";
 
 let defaultState = {
-  searchList: []//搜索结果列表
-}
+  searchList: [] //搜索结果列表
+};
 
 /**
  * 使用redux-actions之前
@@ -38,27 +37,35 @@ let defaultState = {
 //   }
 // },defaultState);
 
-
 // 使用handleActions处理多个actions  ,这里需要注意的是  通过action.payload获取传过来的数据
-const reducerCreators = handleActions({
-  [types.GET_RECOMMEND_LIST_SUCCEEDED]:(state, action)=>{
-    return {
-      ...state,
-      recommendList: action.payload
+const reducerCreators = handleActions(
+  {
+    [types.GET_APP_INFO_SUCCEED]: (state, action) => {
+      return {
+        ...state,
+        appInfo: action.payload
+      };
+    },
+    [types.GET_RECOMMEND_LIST_SUCCEEDED]: (state, action) => {
+      return {
+        ...state,
+        recommendList: action.payload
+      };
+    },
+    [types.SAVE_SEARCH_LIST]: (state, action) => {
+      return {
+        ...state,
+        searchList: action.payload
+      };
+    },
+    [types.REMOVE_SEARCH_LIST]: (state, action) => {
+      return {
+        ...state,
+        searchList: []
+      };
     }
   },
-  [types.SAVE_SEARCH_LIST]:(state, action)=>{
-    return {
-      ...state,
-      searchList: action.payload
-    }
-  },
-  [types.REMOVE_SEARCH_LIST]:(state, action)=>{
-    return{
-      ...state,
-      searchList:[]
-    }
-  }
-},defaultState);
+  defaultState
+);
 
 export default reducerCreators;

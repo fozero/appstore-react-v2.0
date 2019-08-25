@@ -1,0 +1,18 @@
+.tabbar{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  .tab-item{
+    flex: 1;
+    text-align: center;
+    &.active{
+      color: red;
+    }
+  }
+}

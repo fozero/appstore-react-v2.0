@@ -1,8 +1,5 @@
-
-import * as types from './action-types'
-import { createActions } from 'redux-actions';
-
-
+import * as types from "./action-types";
+import { createActions } from "redux-actions";
 
 /**
  * 使用redux-actions之前
@@ -30,16 +27,20 @@ import { createActions } from 'redux-actions';
 
 // 使用createActions创建多个动作
 export const actionCreators = createActions({
-  [types.GET_RECOMMEND_LIST]:()=>null,
-  [types.GET_RECOMMEND_LIST_SUCCEEDED]:(recommendList)=>{
-    return recommendList
+  [types.GET_APP_INFO]: id => {
+    return id;
   },
-  [types.APP_LIST_DATE]:()=>null,
-  [types.APP_SEARCH]:keyword=>{
-    return keyword
+  [types.GET_APP_INFO_SUCCEED]: res => {
+    return res;
   },
-  [types.SAVE_SEARCH_LIST]:searchList=>searchList,
-  [types.REMOVE_SEARCH_LIST]:()=>null
+  [types.GET_RECOMMEND_LIST]: () => null,
+  [types.GET_RECOMMEND_LIST_SUCCEEDED]: recommendList => {
+    return recommendList;
+  },
+  [types.APP_LIST_DATE]: () => null,
+  [types.APP_SEARCH]: keyword => {
+    return keyword;
+  },
+  [types.SAVE_SEARCH_LIST]: searchList => searchList,
+  [types.REMOVE_SEARCH_LIST]: () => null
 });
-
-

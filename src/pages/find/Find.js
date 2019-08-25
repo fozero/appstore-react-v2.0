@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import Tabbar from "../../components/tabbar/Tabbar";
+import Swiper from "../../components/swiper/Swiper";
 
-import "./Profile.scss";
-class Profile extends Component {
+import "./Find.scss";
+class Find extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
     return (
-      <div className="profile">
-        profile
+      <div className="find">
+        <Swiper />
         {/* <Tabbar></Tabbar> */}
       </div>
     );
   }
 }
 
-export default Profile;
+export default Find;

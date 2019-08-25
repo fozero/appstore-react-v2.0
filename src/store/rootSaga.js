@@ -1,45 +1,62 @@
-
-import { put, call,takeLatest,all } from 'redux-saga/effects';
-import { actionCreators } from './action'
-import $api from '../api/index.js';
-
+import { put, call, takeLatest, all } from "redux-saga/effects";
+import { actionCreators } from "./action";
+import $api from "../api/index.js";
 
 /**
  * app搜索获取结果列表
  */
 export function* appSearch(action) {
-  // 在saga中这里通过action.payload获取到前台传过来的keyword内容   
-  const p = function(){
-    return $api.lookUp({
-      keyword:action.payload
-    })
-    .then(res => res.results)
-    .then(res =>{
-      return res
-    })
-  }
+  // 在saga中这里通过action.payload获取到前台传过来的keyword内容
+  const p = function() {
+    return $api
+      .lookUp({
+        keyword: action.payload
+      })
+      .then(res => res.results)
+      .then(res => {
+        return res;
+      });
+  };
   const res = yield call(p); // 执行p函数，返回值赋值给res
-  yield put(actionCreators.saveSearchList(res));// 通过put触发dispatch ，将返回数据传过去
+  yield put(actionCreators.saveSearchList(res)); // 通过put触发dispatch ，将返回数据传过去
 }
 
+/**
+ * 获取app详情数据
+ * @param {*} action
+ */
+export function* getAppInfo(action) {
+  // 在saga中这里通过action.payload获取到前台传过来的keyword内容
+  const p = function() {
+    return $api
+      .appInfo({
+        id: action.payload
+      })
+      .then(res => res.data)
+      .then(res => {
+        return res;
+      });
+  };
+  const res = yield call(p); // 执行p函数，返回值赋值给res
+  yield put(actionCreators.getAppInfoSucceed(res)); // 通过put触发dispatch ，将返回数据传过去
+}
 
 /**
  * 请求获取推荐列表
- * @param {*} action 
+ * @param {*} action
  */
-export function* getRecommendList(action) { 
-  const p = function(){
-    return $api.recommendData({})
-    .then(res => res.feed)
-    .then(res =>{
-      return res
-    })
-  }
+export function* getRecommendList(action) {
+  const p = function() {
+    return $api
+      .recommendData({})
+      .then(res => res.feed)
+      .then(res => {
+        return res;
+      });
+  };
   const res = yield call(p); // 执行p函数，返回值赋值给res
   yield put(actionCreators.getRecommendListSucceeded(res.entry));
 }
-
-
 
 /**
  * 监控Action的函数
@@ -50,11 +67,11 @@ export function* getRecommendList(action) {
 //   yield takeEvery(actionCreators.appSearch, appSearch);
 // }
 
-
 // 同时启动多个Sagas  监听action动作
 export default function* rootSaga() {
   yield all([
     takeLatest(actionCreators.appSearch, appSearch),
-    takeLatest(actionCreators.getRecommendList, getRecommendList)
-  ])
+    takeLatest(actionCreators.getRecommendList, getRecommendList),
+    takeLatest(actionCreators.getAppInfo, getAppInfo)
+  ]);
 }
