@@ -1,14 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { AppContainer } from 'react-hot-loader'
-import store from './store'
-import Router from './router/index';
-import './styles/base.scss';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { AppContainer } from "react-hot-loader";
+import store from "./store";
+import Router from "./router/index";
+import "./styles/base.scss";
+import * as serviceWorker from "./serviceWorker";
 
-// import i18n (needs to be bundled ;)) 
-import './i18n';
+// import i18n (needs to be bundled ;))
+import "./i18n";
 
 const render = Component => {
   ReactDOM.render(
@@ -17,11 +17,11 @@ const render = Component => {
         <Component />
       </AppContainer>
     </Provider>,
-    document.getElementById('root')
-  )
-}
+    document.getElementById("root")
+  );
+};
 
-render(Router)
+render(Router);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

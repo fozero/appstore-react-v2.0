@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Tabbar from "../../components/tabbar/Tabbar";
 import Swiper from "../../components/swiper/Swiper";
+import MasterLayout from "../../components/MasterLayout";
 
 import "./Find.scss";
 class Find extends Component {
@@ -11,9 +12,9 @@ class Find extends Component {
   render() {
     return (
       <div className="find">
-        <Swiper />
-        {/* <Tabbar></Tabbar> */}
-      </div>
+          <Swiper />
+          <Tabbar></Tabbar>
+        </div>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import InfiniteScroll from "react-infinite-scroller";
 import ReactPullLoad, { STATS } from "react-pullload";
 import "react-pullload/dist/ReactPullLoad.css"; // the hook
 import { withTranslation } from "react-i18next";
@@ -170,7 +171,7 @@ class Index extends Component {
     // const { t } = this.props;
     const isLoading = this.state.isLoading;
     return (
-      <div className="container">
+      <div className="home-container">
         <div className="search-bar">
           <Search onFoucs={this.onFoucs.bind(this)} />
         </div>
@@ -189,7 +190,7 @@ class Index extends Component {
           <Recommend />
           {isLoading ? <MyLoader /> : <AppList list={this.state.appList} />}
         </ReactPullLoad>
-        {/* <Tabbar/> */}
+        <Tabbar />
       </div>
     );
   }

@@ -1,4 +1,4 @@
-.tabbar{
+.tabbar {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -8,11 +8,17 @@
   display: flex;
   align-items: center;
   height: 100px;
-  .tab-item{
+
+  .tab-item {
     flex: 1;
     text-align: center;
-    &.active{
+
+    &.tab-active {
       color: red;
+    }
+
+    img {
+      width: 50px;
     }
   }
 }

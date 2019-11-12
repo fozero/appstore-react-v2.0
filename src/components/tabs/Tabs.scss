@@ -1,0 +1,13 @@
+.tabs{
+  display: flex;
+  height: 96px;
+  line-height: 96px;
+  background: #fff;
+  .tab-item{
+    width: 50%;
+    text-align: center;
+  }
+  .actived{
+    border-bottom: 4px solid red;
+  }
+}
